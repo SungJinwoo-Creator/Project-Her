@@ -1,0 +1,291 @@
+echo "# Project-Her" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/SungJinwoo-Creator/Project-Her.git
+git push -u origin main
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROJECT: HER</title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #050811;
+    color: #d9ffff;
+    font-family: Consolas, Monaco, monospace;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      transparent 0px,
+      transparent 3px,
+      #00f0ff08 4px
+    );
+  }
+
+  .panel {
+    width: 100%;
+    max-width: 620px;
+    border: 1px solid #00eaff66;
+    background: #080e1bee;
+    padding: 28px;
+    box-shadow: 0 0 35px #00eaff18;
+    position: relative;
+  }
+
+  .top {
+    color: #00f0ff;
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+
+  h1 {
+    font-size: clamp(30px, 8vw, 48px);
+    margin: 22px 0 8px;
+    color: #fff;
+    text-shadow: 0 0 18px #00eaff77;
+  }
+
+  .pink { color: #ff55bd; }
+
+  .subtitle {
+    color: #8298ad;
+    line-height: 1.7;
+    font-size: 13px;
+  }
+
+  .line {
+    border: 0;
+    border-top: 1px solid #18303e;
+    margin: 24px 0;
+  }
+
+  .status {
+    color: #62ffac;
+    font-size: 12px;
+    margin: 12px 0;
+  }
+
+  .terminal {
+    min-height: 110px;
+    padding: 16px;
+    background: #03070c;
+    border-left: 2px solid #00f0ff;
+    color: #8cdbd9;
+    font-size: 12px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 16px 10px;
+    background: #00eaff;
+    border: none;
+    color: #031016;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .2s;
+  }
+
+  button:hover {
+    background: #fff;
+    box-shadow: 0 0 25px #00eaff77;
+  }
+
+  button:disabled {
+    opacity: .6;
+    cursor: wait;
+  }
+
+  .hidden { display: none; }
+
+  .heart {
+    color: #ff55bd;
+    text-align: center;
+    font-size: 76px;
+    animation: beat 1s infinite;
+    text-shadow: 0 0 35px #ff55bd99;
+  }
+
+  .message {
+    text-align: center;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+  }
+
+  .message h2 {
+    color: #ff7dc9;
+    font-size: 27px;
+  }
+
+  .footer {
+    margin-top: 24px;
+    color: #60798a;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.13); }
+  }
+
+  .bar {
+    height: 4px;
+    background: #122633;
+    margin-top: 15px;
+  }
+
+  .fill {
+    width: 0%;
+    height: 100%;
+    background: #00eaff;
+    transition: width .25s;
+    box-shadow: 0 0 12px #00eaff;
+  }
+</style>
+</head>
+
+<body>
+<main class="panel">
+  <div class="top">◈ SECURE SYSTEM // 001</div>
+
+  <h1>PROJECT:<br><span class="pink">HER</span></h1>
+
+  <p class="subtitle">
+    ARCHIVO CLASIFICADO<br>
+    Acceso restringido. Un mensaje espera ser descubierto.
+  </p>
+
+  <hr class="line">
+
+  <div class="status" id="status">
+    ● SISTEMA EN ESPERA
+  </div>
+
+  <div class="terminal" id="terminal">
+    > Inicializando protocolo...<br>
+    > Archivo encontrado: special_person.dat<br>
+    > Se requiere autorización del usuario.
+  </div>
+
+  <div class="bar"><div class="fill" id="fill"></div></div>
+
+  <button id="start" onclick="startMission()">
+    [ INICIAR DESCIFRADO ]
+  </button>
+
+  <section id="reveal" class="hidden">
+    <hr class="line">
+    <div class="heart">♥</div>
+
+    <div class="message">
+      <h2>ACCESO CONCEDIDO</h2>
+      <p>Identidad del archivo: <strong class="pink" id="herName">MI PERSONA FAVORITA</strong></p>
+
+      <p>
+        Después de analizar millones de posibilidades,
+        el sistema encontró algo imposible de reemplazar:
+        <strong>tú.</strong>
+      </p>
+
+      <p>
+        No necesito hackear el universo para encontrar
+        mi lugar favorito. Lo encuentro cuando estoy contigo.
+      </p>
+
+      <p class="pink">
+        ♥ Eres mi resultado favorito. ♥
+      </p>
+
+      <p>— Un futuro programador que tuvo suerte de encontrarte.</p>
+    </div>
+
+    <button onclick="showSecret()">
+      [ ABRIR MENSAJE EXTRA ]
+    </button>
+
+    <p id="secret" class="hidden message pink">
+      Si pudiera elegir una y otra vez, volvería a elegirte. ❤️
+    </p>
+  </section>
+
+  <div class="footer">
+    PROJECT HER // CREATED WITH ♥ // CONNECTION SECURED
+  </div>
+</main>
+
+<script>
+  // PERSONALIZA ESTOS DOS VALORES
+  const nombre = "Nahy";
+  const mensajeExtra = "Que suerte tuve al tenerte. ❤️";
+
+  document.getElementById("herName").textContent =
+    nombre === "SU NOMBRE" ? "MI PERSONA FAVORITA" : nombre;
+
+  function startMission() {
+    const button = document.getElementById("start");
+    const terminal = document.getElementById("terminal");
+    const status = document.getElementById("status");
+    const fill = document.getElementById("fill");
+
+    button.disabled = true;
+    status.textContent = "● DESCIFRANDO ARCHIVO...";
+
+    const lines = [
+      "> Estableciendo conexión segura...",
+      "> Analizando recuerdos compartidos...",
+      "> Buscando coordenadas de felicidad...",
+      "> Error: demasiados motivos para sonreír.",
+      "> Identidad verificada.",
+      "> Descifrando mensaje personal...",
+      "> ¡Sorpresa desbloqueada!"
+    ];
+
+    let i = 0;
+
+    function nextLine() {
+      if (i < lines.length) {
+        terminal.innerHTML += "<br>" + lines[i];
+        fill.style.width = ((i + 1) / lines.length * 100) + "%";
+        i++;
+        setTimeout(nextLine, 650);
+      } else {
+        status.textContent = "● ACCESO CONCEDIDO";
+        button.classList.add("hidden");
+        document.getElementById("reveal").classList.remove("hidden");
+      }
+    }
+
+    terminal.innerHTML = "";
+    nextLine();
+  }
+
+  function showSecret() {
+    document.getElementById("secret").textContent = mensajeExtra;
+    document.getElementById("secret").classList.remove("hidden");
+  }
+</script>
+</body>
+</html>
